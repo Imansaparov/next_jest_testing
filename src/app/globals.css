@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+@layer base {
+  html {
+    @apply bg-paper-deep font-sans text-ink antialiased;
+    scroll-behavior: smooth;
+  }
+ 
+  @media (min-width: 400px) and (max-width: 47.99rem) {
+    [data-mobile-zoom] {
+      zoom: var(--mobile-zoom, 1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  ::selection {
+    @apply bg-mustard-light text-ink;
+  }
+}

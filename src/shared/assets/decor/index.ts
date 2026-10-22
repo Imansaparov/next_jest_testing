@@ -1,0 +1,40 @@
+/*
+ * Illustrations cut out of design/design_*.png by scripts/extract-decor.py.
+ * Desktop pieces are 1:1 with the 1376 px frame; mobile pieces are drawn @2×.
+ */
+export { default as actionAdd } from './action-add.png';
+export { default as actionRemove } from './action-remove.png';
+export { default as addTileSwatch } from './add-tile-swatch.png';
+export { default as desktopBottomLeft } from './desktop-bottom-left.png';
+export { default as desktopBottomRight } from './desktop-bottom-right.png';
+export { default as desktopCartHand } from './desktop-cart-hand.png';
+export { default as desktopCornerLeft } from './desktop-corner-left.png';
+export { default as desktopCornerRight } from './desktop-corner-right.png';
+export { default as desktopGridHand } from './desktop-grid-hand.png';
+export { default as desktopLeftFillA } from './desktop-left-fill-a.png';
+export { default as desktopLeftFillB } from './desktop-left-fill-b.png';
+export { default as desktopLeftLower } from './desktop-left-lower.png';
+export { default as desktopLeftMiddle } from './desktop-left-middle.png';
+export { default as desktopLeftUpper } from './desktop-left-upper.png';
+export { default as desktopPaletteHand } from './desktop-palette-hand.png';
+export { default as desktopRightFillA } from './desktop-right-fill-a.png';
+export { default as desktopRightFillB } from './desktop-right-fill-b.png';
+export { default as desktopRightLower } from './desktop-right-lower.png';
+export { default as desktopRightMiddle } from './desktop-right-middle.png';
+export { default as desktopRightUpper } from './desktop-right-upper.png';
+export { default as desktopTopLeft } from './desktop-top-left.png';
+export { default as desktopTopRight } from './desktop-top-right.png';
+export { default as heroKiln } from './hero-kiln.png';
+export { default as heroMuseum } from './hero-museum.png';
+export { default as heroTilesLeft } from './hero-tiles-left.png';
+export { default as heroTilesLeftDesktop } from './hero-tiles-left-desktop.png';
+export { default as heroTilesRight } from './hero-tiles-right.png';
+export { default as heroTilesRightDesktop } from './hero-tiles-right-desktop.png';
+export { default as mobileBottomLeft } from './mobile-bottom-left.png';
+export { default as mobileBottomMiddle } from './mobile-bottom-middle.png';
+export { default as mobileCartHand } from './mobile-cart-hand.png';
+export { default as mobileHands } from './mobile-hands.png';
+export { default as mobileNotesTiles } from './mobile-notes-tiles.png';
+export { default as mobileSprig } from './mobile-sprig.png';
+export { default as mobileTopLeft } from './mobile-top-left.png';
+export { default as mobileTopRight } from './mobile-top-right.png';
