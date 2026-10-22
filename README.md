@@ -25,14 +25,6 @@ npm run check      # lint + typecheck + format:check + test
 npm run build && npm run start
 ```
 
-## Переменные окружения
-
-Не обязательны. `SITE_URL` нужен только для своего домена — он попадает в metadata, `robots.txt` и `sitemap.xml` (см. [`.env.example`](.env.example)). Без него адрес берётся у хостинга (Vercel: `VERCEL_PROJECT_PRODUCTION_URL`), локально — `http://localhost:3000`.
-
-## Деплой
-
-Vercel: импортировать репозиторий с GitHub — Next.js определяется автоматически, настройки не нужны.
-
 ## Функциональность
 
 **Shopping Cart** — изменение количества (ввод или кнопка ADD = +1 sq. ft.), удаление позиций, добавление новых коллекций через «Add new tile to cart». Стартовые данные из макета: Ocean Wave (150), Forest Fern (75), Terracotta Dot (200), Yellow Star (50).
@@ -87,7 +79,3 @@ src/
 - `checkout.slice.test.ts` — `placeOrder` thunk на реальном store;
 - `shopping-cart.test.tsx` — компонент корзины через RTL.
 
-## Заметки
-
-- Шапка следует макетам буквально: на mobile — гость («Log In»), на desktop — пользователь «A. Smith».
-- В макете desktop итоги ($266 / $299) не совпадают с количествами — приложение считает по формулам задания.
