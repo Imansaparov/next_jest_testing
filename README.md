@@ -1,6 +1,6 @@
 # The Artisan Kiln — Ceramic Tile Order Form
 
-Одностраничная форма заказа керамической плитки (тестовое задание).
+Одностраничная форма заказа керамической плитки (тестовое задание). https://next-jest-testing.vercel.app
 
 - **Mobile** (< 1024px) — вертикальная форма заказа (`design_mobile.png`);
 - **Tablet** (`md`, 1024–1199px) — сетка 2×2: корзина | Design Tool сверху, Order Summary | Select Payment Method снизу;
