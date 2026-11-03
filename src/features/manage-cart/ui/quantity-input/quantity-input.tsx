@@ -41,7 +41,10 @@ export function QuantityInput({
   };
 
   return (
-    <Bracketed className="text-[0.9rem] font-semibold md:text-[0.95rem] xl:text-[1.1rem]">
+    <Bracketed
+      className="w-full justify-center text-[0.9rem] font-semibold md:text-[0.95rem] xl:text-[1.1rem]"
+      bracketClassName="max-[400px]:hidden"
+    >
       <input
         type="text"
         inputMode="numeric"
@@ -52,7 +55,7 @@ export function QuantityInput({
         onKeyDown={handleKeyDown}
         onFocus={event => event.currentTarget.select()}
         onBlur={() => setDraft(null)}
-        className="w-[4.2ch] min-w-0 rounded-sm border-b-2 border-transparent bg-transparent text-center tabular-nums outline-none transition-colors hover:border-ink/30 focus:border-navy focus:bg-paper"
+        className="w-[3.4ch] min-w-0 rounded-sm border-b-2 border-transparent bg-transparent text-center tabular-nums outline-none transition-colors hover:border-ink/30 focus:border-navy focus:bg-paper"
       />
     </Bracketed>
   );

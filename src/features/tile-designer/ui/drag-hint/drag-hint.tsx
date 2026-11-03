@@ -25,7 +25,7 @@ export function DragHint({ className }: DragHintProps) {
       {isUntouched ? (
         <motion.div
           className={cn('pointer-events-none absolute z-10', className)}
-          initial={false}
+          initial={{ y: 0 }}
           animate={{ y: [0, -6, 0] }}
           exit={{ opacity: 0, y: 24, transition: { duration: 0.3 } }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}

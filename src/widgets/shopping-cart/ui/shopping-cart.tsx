@@ -131,7 +131,10 @@ export function ShoppingCart({ className }: ShoppingCartProps) {
                     />
                   </td>
                   <td className={cn(cellClass, 'whitespace-nowrap')}>
-                    <Bracketed className="text-[0.78rem] font-semibold tabular-nums md:text-[0.8rem] lg:text-[0.95rem]">
+                    <Bracketed
+                      className="w-full justify-center text-[0.78rem] font-semibold tabular-nums md:text-[0.8rem] lg:text-[0.82rem] min-[85rem]:text-[0.95rem]"
+                      bracketClassName="max-[400px]:hidden"
+                    >
                       {formatCurrency(item.unitPrice)}
                     </Bracketed>
                   </td>

@@ -55,7 +55,7 @@ export function PlaceOrderButton({ className }: PlaceOrderButtonProps) {
         size="lg"
         disabled={isSubmitting}
         aria-busy={isSubmitting}
-        className="w-full max-md:sr-only lg:h-[35px] lg:rounded-[6px] lg:text-[1.05rem]"
+        className="w-full max-md:h-11 max-md:px-3 max-md:text-base lg:h-[35px] lg:rounded-[6px] lg:text-[1.05rem]"
       >
         {isSubmitting ? <SpinnerIcon className="size-5 animate-spin" /> : null}
         {isSubmitting ? 'Placing Order…' : 'Place Secure Order'}

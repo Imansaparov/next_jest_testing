@@ -68,7 +68,7 @@ export function OrderPage() {
 
             <OrderSummaryTotals className="hidden md:col-start-1 md:row-start-5 md:block lg:col-start-3 lg:row-start-4 lg:px-[11px] lg:pt-[12px]" />
 
-            <PlaceOrderButton className="max-md:-mt-[11px] md:col-start-2 md:row-start-5 md:self-end lg:col-start-3 lg:row-start-6 lg:mt-[13px] lg:self-start lg:pr-[11px] lg:pl-[19px]" />
+            <PlaceOrderButton className="max-md:mt-1 max-md:mr-[30%] md:col-start-2 md:row-start-5 md:self-end lg:col-start-3 lg:row-start-6 lg:mt-[13px] lg:self-start lg:pr-[11px] lg:pl-[19px]" />
           </CheckoutForm>
         </main>
 
