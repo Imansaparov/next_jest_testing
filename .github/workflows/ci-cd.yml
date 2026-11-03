@@ -1,0 +1,53 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-cd-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+
+  deploy:
+    name: Deploy to server
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+    steps:
+      - name: Skip when the server is not configured yet
+        if: env.SSH_HOST == ''
+        run: echo "::notice::SSH_HOST secret is not set, skipping deploy"
+
+      - name: Pull and restart over SSH
+        if: env.SSH_HOST != ''
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          command_timeout: 30m
+          script: |
+            set -e
+            cd ~/app
+            git fetch --depth 1 origin master
+            git reset --hard origin/master
+            docker compose up -d --build --remove-orphans
+            docker image prune -f

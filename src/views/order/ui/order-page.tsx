@@ -22,7 +22,6 @@ import { ShoppingCart } from '@/widgets/shopping-cart';
 import { SiteFooter } from '@/widgets/site-footer';
 import { SiteHeader } from '@/widgets/site-header';
 
-
 export function OrderPage() {
   return (
     <div
@@ -50,7 +49,6 @@ export function OrderPage() {
             <PaymentMethodPicker className="md:col-start-2 md:row-span-3 md:row-start-2 lg:col-start-3 lg:row-span-1 lg:row-start-5 lg:mt-[12px] lg:pr-[11px] lg:pl-[19px]" />
 
             <div className="relative mt-[3px] flex gap-2.5 pr-[28%] md:col-start-1 md:row-start-4 md:mt-0 md:pr-0 lg:col-start-3 lg:row-start-3 lg:mt-[2px] lg:px-[11px]">
-          
               <DecorImage
                 src={mobileNotesTiles}
                 className="-ml-1 h-[40px] w-auto shrink-0 self-start md:hidden"

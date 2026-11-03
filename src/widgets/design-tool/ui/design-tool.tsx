@@ -10,7 +10,6 @@ type DesignToolProps = {
   className?: string;
 };
 
-
 export function DesignTool({ className }: DesignToolProps) {
   return (
     <section

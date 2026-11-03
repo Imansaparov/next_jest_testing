@@ -1,5 +1,5 @@
 /*
- * Illustrations cut out of design/design_*.png by scripts/extract-decor.py.
+ * Illustrations cut out of design/design_*.png.
  * Desktop pieces are 1:1 with the 1376 px frame; mobile pieces are drawn @2×.
  */
 export { default as actionAdd } from './action-add.png';

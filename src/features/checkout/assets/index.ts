@@ -1,4 +1,4 @@
-/* Payment artwork cut from the mockups by scripts/extract-tiles.py. */
+/* Payment artwork cut from the mockups. */
 export { default as applePayIcon } from './apple-pay.png';
 export { default as applePayLargeIcon } from './apple-pay-large.png';
 export { default as bankIcon } from './bank.png';

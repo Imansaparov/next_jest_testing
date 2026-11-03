@@ -42,7 +42,7 @@ import yellowStarGrid from './yellow-star-grid.png';
 import yellowStar from './yellow-star.png';
 
 /*
- * Tile artwork cut from the mockups by scripts/extract-tiles.py — the
+ * Tile artwork cut from the mockups — the
  * hand-painted glazes can't be redrawn faithfully in code.
  *  - patterns:  default swatch (palette, cart on mobile — mobile mockup @2×);
  *  - desktop:   cart swatches as painted on the desktop mockup;

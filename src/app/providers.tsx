@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import { makeStore } from './store';
 
 export function Providers({ children }: PropsWithChildren) {
-  
   const [store] = useState(makeStore);
 
   return (

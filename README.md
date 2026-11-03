@@ -25,6 +25,26 @@ npm run check      # lint + typecheck + format:check + test
 npm run build && npm run start
 ```
 
+## Деплой
+
+Self-hosted: Docker + Nginx на VPS (Oracle Cloud Always Free, Ubuntu), автодеплой через GitHub Actions.
+
+- [`Dockerfile`](Dockerfile) — multi-stage сборка, `output: 'standalone'`, запуск от непривилегированного пользователя;
+- [`docker-compose.yml`](docker-compose.yml) — контейнер слушает только `127.0.0.1:3000`;
+- [`deploy/nginx/artisan-kiln.conf`](deploy/nginx/artisan-kiln.conf) — reverse proxy, HTTPS через Let's Encrypt (certbot);
+- [`deploy/server-setup.sh`](deploy/server-setup.sh) — первичная настройка сервера одной командой;
+- [`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml) — на push в `master`: lint + typecheck + format + tests + build, затем деплой по SSH (`git pull` → `docker compose up -d --build`).
+
+```bash
+# локально
+docker compose up -d --build   # http://localhost:3000
+
+# на новом сервере
+curl -fsSL https://raw.githubusercontent.com/Imansaparov/next_jest_testing/master/deploy/server-setup.sh | sudo bash
+```
+
+Секреты репозитория для деплоя: `SSH_HOST`, `SSH_USER`, `SSH_KEY`.
+
 ## Функциональность
 
 **Shopping Cart** — изменение количества (ввод или кнопка ADD = +1 sq. ft.), удаление позиций, добавление новых коллекций через «Add new tile to cart». Стартовые данные из макета: Ocean Wave (150), Forest Fern (75), Terracotta Dot (200), Yellow Star (50).
@@ -65,8 +85,8 @@ src/
 - Слои импортируют slice только через public API (`index.ts`), внутри slice — относительные импорты.
 - `RootState` / `AppDispatch` объявлены глобально в `src/app/store.ts`, поэтому типизированные хуки из `shared/lib/redux` не импортируют верхний слой.
 - Одно DOM-дерево на все раскладки: порядок секций соответствует мобильному макету, на tablet/desktop секции явно раскладываются по CSS Grid.
-- Иллюстрации (руки с плиткой, растения, плитки по краям, палитра) вырезаны прямо из макетов `design/*.png` скриптом [`scripts/extract-decor.py`](scripts/extract-decor.py) (Pillow): фон удаляется заливкой от краёв кадра, поэтому закрашенные ладони остаются непрозрачными. Результат — прозрачные PNG в `src/shared/assets/decor`, они выводятся через `next/image` (`aria-hidden`, `pointer-events-none`). Десктопные фрагменты стоят в координатах макета 1:1 (рамка 1376px = ширина макета). Подсказка «рука перетаскивает плитку» над сеткой исчезает после первого действия пользователя.
-- Изображения плиток (каталог, палитра, сетка, эмблемы коллекций), иконки оплаты и иконки в заголовке тоже взяты с макетов скриптом [`scripts/extract-tiles.py`](scripts/extract-tiles.py) — `src/entities/tile/assets`, `src/features/checkout/assets`.
+- Иллюстрации (руки с плиткой, растения, плитки по краям, палитра) вырезаны прямо из макетов `design/*.png`: фон удалён, поэтому это прозрачные PNG в `src/shared/assets/decor`, они выводятся через `next/image` (`aria-hidden`, `pointer-events-none`). Десктопные фрагменты стоят в координатах макета 1:1 (рамка 1376px = ширина макета). Подсказка «рука перетаскивает плитку» над сеткой исчезает после первого действия пользователя.
+- Изображения плиток (каталог, палитра, сетка, эмблемы коллекций), иконки оплаты и иконки в заголовке тоже вырезаны из макетов — `src/entities/tile/assets`, `src/features/checkout/assets`.
 - Сетка Design Tool прокручивается по обеим осям; полосы прокрутки нарисованы как в макете (`useScrollThumbs`, ползунки можно тянуть).
 - На мобильном макете нет кнопки заказа — она скрыта визуально (`sr-only`), но доступна скринридерам и срабатывает по клавише «Go/Enter»; поля карты раскрываются после выбора способа оплаты.
 - Футер корзины: «Add new tile» слева, итоги справа всегда в одну строку; рука с плиткой показывается через container query, только когда помещается.
@@ -78,4 +98,3 @@ src/
 - `validate-checkout.test.ts`, `card-format.test.ts` — валидация и форматирование;
 - `checkout.slice.test.ts` — `placeOrder` thunk на реальном store;
 - `shopping-cart.test.tsx` — компонент корзины через RTL.
-

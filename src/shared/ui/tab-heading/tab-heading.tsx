@@ -8,7 +8,6 @@ type TabHeadingProps = {
   className?: string;
 };
 
-
 export function TabHeading({ children, id, className }: TabHeadingProps) {
   return (
     <div className={cn('flex items-end', className)}>

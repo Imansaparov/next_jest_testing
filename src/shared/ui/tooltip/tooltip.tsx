@@ -16,7 +16,6 @@ const GAP = 8;
 const VIEWPORT_MARGIN = 8;
 const MAX_WIDTH = 220;
 
-
 export function Tooltip({ content, children }: TooltipProps) {
   const id = useId();
   const anchorRef = useRef<HTMLSpanElement>(null);
@@ -37,7 +36,6 @@ export function Tooltip({ content, children }: TooltipProps) {
   const hide = () => setPosition(null);
 
   return (
-  
     <span
       ref={anchorRef}
       className="inline-flex"

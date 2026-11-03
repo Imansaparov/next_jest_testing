@@ -18,7 +18,6 @@ type CartItemActionsProps = {
 const actionButtonClass =
   'group flex cursor-pointer flex-col items-center gap-[3px] rounded-md text-[0.5rem] leading-none font-semibold tracking-wide uppercase focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-navy';
 
-
 export function CartItemActions({ designId, name }: CartItemActionsProps) {
   const dispatch = useAppDispatch();
 

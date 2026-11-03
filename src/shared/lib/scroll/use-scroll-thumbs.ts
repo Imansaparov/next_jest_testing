@@ -24,7 +24,6 @@ const INITIAL_STATE: ScrollThumbsState = {
   canScrollY: false,
 };
 
-
 export function useScrollThumbs<T extends HTMLElement>() {
   const viewportRef = useRef<T>(null);
   const [state, setState] = useState<ScrollThumbsState>(INITIAL_STATE);

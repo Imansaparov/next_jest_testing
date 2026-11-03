@@ -1,6 +1,5 @@
 const developmentSiteUrl = 'http://localhost:3000';
 
-
 function getSiteUrl(): string {
   const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 

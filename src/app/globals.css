@@ -6,7 +6,7 @@
     @apply bg-paper-deep font-sans text-ink antialiased;
     scroll-behavior: smooth;
   }
- 
+
   @media (min-width: 400px) and (max-width: 47.99rem) {
     [data-mobile-zoom] {
       zoom: var(--mobile-zoom, 1);

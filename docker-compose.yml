@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-http://localhost:3000}
+    image: artisan-kiln:latest
+    container_name: artisan-kiln
+    restart: unless-stopped
+    # Only reachable from the host itself; Nginx proxies public traffic to it.
+    ports:
+      - '127.0.0.1:3000:3000'
+    environment:
+      SITE_URL: ${SITE_URL:-http://localhost:3000}

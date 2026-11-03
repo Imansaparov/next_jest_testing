@@ -147,7 +147,6 @@ export function PaymentMethodPicker({ className }: PaymentMethodPickerProps) {
             !detailsVisibleOnMobile && 'hidden'
           )}
         >
-     
           <div className="mt-2 grid rounded-[6px] border-[1.5px] border-ink bg-paper-muted px-2 py-[7px] md:mt-3 md:rounded-lg md:border-2 md:p-3 lg:mt-0 lg:rounded-[6px] lg:px-[9px] lg:pt-[7px] lg:pb-[8px]">
             {PAYMENT_METHOD_OPTIONS.map(option => {
               const isActive = option.id === paymentMethod;
